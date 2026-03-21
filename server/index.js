@@ -1,13 +1,22 @@
 import express from 'express';
 import cors from 'cors';
 import nodemailer from 'nodemailer';
-import 'dotenv/config';
+import rateLimit from 'express-rate-limit';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import dotenv from 'dotenv';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: join(__dirname, '.env') });
+
+// ── Env validation ────────────────────────────────────────────────
+const REQUIRED_ENV = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'OWNER_EMAIL'];
+const missing = REQUIRED_ENV.filter((k) => !process.env[k]);
+if (missing.length) {
+    console.error(`❌ Missing required env vars: ${missing.join(', ')}`);
+    console.error('   Create server/.env — see server/.env.example');
+    process.exit(1);
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +26,15 @@ app.use(cors({
     origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
     methods: ['POST'],
 }));
+
+// ── Rate limiter: max 5 requests per 15 min per IP ────────────────
+const contactLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 5,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: { error: 'Too many requests. Please wait 15 minutes before trying again.' },
+});
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -33,8 +51,8 @@ transporter.verify((err) => {
     else console.log('✅ SMTP server ready — mails will be sent from', process.env.SMTP_USER);
 });
 
-app.post('/api/contact', async (req, res) => {
-    const { name, email, subject, budget, message } = req.body;
+app.post('/api/contact', contactLimiter, async (req, res) => {
+    const { name, email, phone, subject, budget, message } = req.body;
 
     if (!name?.trim() || !email?.trim() || !message?.trim()) {
         return res.status(400).json({ error: 'Name, email, and message are required.' });
@@ -90,6 +108,12 @@ app.post('/api/contact', async (req, res) => {
                 <td style="padding:20px 24px;border-bottom:1px solid #334155;">
                   <p style="margin:0;color:#64748b;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Email</p>
                   <a href="mailto:${email}" style="display:block;margin:4px 0 0;color:#60a5fa;font-size:15px;font-weight:600;text-decoration:none;">${email}</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:20px 24px;border-bottom:1px solid #334155;">
+                  <p style="margin:0;color:#64748b;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;">Phone</p>
+                  <p style="margin:4px 0 0;color:#f1f5f9;font-size:15px;font-weight:600;">${phone || 'Not provided'}</p>
                 </td>
               </tr>
               <tr>

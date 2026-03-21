@@ -32,11 +32,13 @@ const ScrollToTop = () => {
                     initial={{ opacity: 0, scale: 0.5, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.5, y: 20 }}
+                    whileHover={{ y: -4, scale: 1.1 }}
+                    whileTap={{ scale: 0.85 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-[60] w-12 h-12 glass-morphism rounded-xl border-white/10 flex items-center justify-center text-brand-400 shadow-2xl shadow-brand-600/20 hover:border-brand-500 hover:text-white hover:-translate-y-1 transition-all group"
+                    className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[60] w-12 h-12 glass-morphism rounded-xl border border-white/10 flex items-center justify-center text-brand-400 shadow-2xl shadow-brand-600/20 hover:border-brand-500 hover:text-white transition-colors active:bg-brand-600/30"
                     aria-label="Scroll to top"
                 >
-                    <ChevronUp size={24} className="group-hover:animate-bounce" />
+                    <ChevronUp size={22} />
                 </motion.button>
             )}
         </AnimatePresence>

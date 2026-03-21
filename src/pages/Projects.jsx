@@ -5,8 +5,10 @@ import ProjectFilter from '../components/projects/ProjectFilter';
 import ProjectCard from '../components/projects/ProjectCard';
 import ProjectModal from '../components/projects/ProjectModal';
 import { PROJECTS } from '../data/projects';
+import usePageTitle from '../hooks/usePageTitle';
 
 const Projects = () => {
+    usePageTitle('Projects');
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedProject, setSelectedProject] = useState(null);
 

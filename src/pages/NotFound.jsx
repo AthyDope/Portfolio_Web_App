@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home, AlertCircle } from 'lucide-react';
 import Container from '../components/layout/Container';
+import usePageTitle from '../hooks/usePageTitle';
 
 const NotFound = () => {
+    usePageTitle('404 — Page Not Found');
     return (
         <motion.div
             initial={{ opacity: 0 }}

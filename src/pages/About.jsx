@@ -4,15 +4,15 @@ import AboutIntro from '../components/about/AboutIntro';
 import TechStack from '../components/about/TechStack';
 import Education from '../components/about/Education';
 import Experience from '../components/about/Experience';
-
 import Languages from '../components/about/Languages';
 import Certifications from '../components/about/Certifications';
 import Achievements from '../components/about/Achievements';
-
 import CurrentlyLearning from '../components/about/CurrentlyLearning';
 import Timeline from '../components/projects/Timeline';
+import usePageTitle from '../hooks/usePageTitle';
 
 const About = () => {
+    usePageTitle('About Me');
     return (
         <motion.div
             initial={{ opacity: 0 }}

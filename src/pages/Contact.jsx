@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Container from '../components/layout/Container';
 import { Send, Mail, MapPin, MessageCircle, CheckCircle, AlertCircle, Clock, Shield, ChevronDown, Briefcase, Rocket, Handshake, Lightbulb, MessageSquare } from 'lucide-react';
+import usePageTitle from '../hooks/usePageTitle';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -98,8 +99,9 @@ const PROCESS_STEPS = [
 ];
 
 const Contact = () => {
+    usePageTitle('Contact');
     const [formData, setFormData] = useState({
-        name: '', email: '', subject: '', budget: '', message: ''
+        name: '', email: '', phone: '', subject: '', budget: '', message: ''
     });
     const [fieldErrors, setFieldErrors] = useState({ name: '', email: '', message: '' });
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -136,7 +138,7 @@ const Contact = () => {
             if (!res.ok) throw new Error(data.error || 'Something went wrong.');
 
             setIsSubmitted(true);
-            setFormData({ name: '', email: '', subject: '', budget: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', subject: '', budget: '', message: '' });
             setTimeout(() => setIsSubmitted(false), 8000);
         } catch (err) {
             setError(err.message || 'Failed to send message. Please try again or email me directly.');
@@ -280,7 +282,14 @@ const Contact = () => {
                                     </div>
                                 </div>
 
-                                {/* Row 2: Subject + Budget */}
+                                {/* Row 2: Phone */}
+                                <div>
+                                    <label className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] ml-2 mb-2 block">Phone Number <span className="text-slate-600 normal-case tracking-normal font-medium">(optional)</span></label>
+                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210"
+                                        className={`${inputBase} h-14 ${inputOk}`} />
+                                </div>
+
+                                {/* Row 3: Subject + Budget */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] ml-2 mb-2 block">Subject / Category</label>

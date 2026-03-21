@@ -7,8 +7,11 @@ import AboutPreview from '../components/home/AboutPreview';
 import WorkProcess from '../components/home/WorkProcess';
 import FeaturedProjects from '../components/home/FeaturedProjects';
 import CertificationStrip from '../components/home/CertificationStrip';
+import usePageTitle from '../hooks/usePageTitle';
 
-const Home = () => (
+const Home = () => {
+    usePageTitle('Full Stack Developer');
+    return (
     <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -24,6 +27,7 @@ const Home = () => (
         <WorkProcess />
         <CertificationStrip />
     </motion.div>
-);
+    );
+};
 
 export default Home;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Container from '../components/layout/Container';
+import usePageTitle from '../hooks/usePageTitle';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,7 +20,9 @@ const Section = ({ title, children }) => (
     </motion.div>
 );
 
-const Privacy = () => (
+const Privacy = () => {
+    usePageTitle('Privacy Policy');
+    return (
     <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -73,6 +76,7 @@ const Privacy = () => (
             </motion.div>
         </Container>
     </motion.div>
-);
+    );
+};
 
 export default Privacy;

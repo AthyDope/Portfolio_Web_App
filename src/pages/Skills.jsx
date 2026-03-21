@@ -5,8 +5,10 @@ import { Code, Database, Settings, Layout, Globe, Server, Terminal, Cpu, Github,
 import TechProficiency from '../components/skills/TechProficiency';
 import ToolsWorkflows from '../components/skills/ToolsWorkflows';
 import SoftSkills from '../components/skills/SoftSkills';
+import usePageTitle from '../hooks/usePageTitle';
 
 const Skills = () => {
+    usePageTitle('Skills');
     const categories = [
         {
             title: 'Frontend Development',
