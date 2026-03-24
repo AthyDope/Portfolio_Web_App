@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const TechStrip = () => {
     const techs = [
         { name: 'HTML5', img: 'https://cdn.simpleicons.org/html5/E34F26', color: '#E34F26' },
-        { name: 'CSS3', img: 'https://cdn.simpleicons.org/css3/1572B6', color: '#1572B6' },
+        { name: 'CSS3', img: 'https://cdn.simpleicons.org/css/1572B6', color: '#1572B6' },
         { name: 'React', img: 'https://cdn.simpleicons.org/react/61DAFB', color: '#61DAFB' },
         { name: 'Vite', img: 'https://cdn.simpleicons.org/vite/646CFF', color: '#646CFF' },
         { name: 'Tailwind CSS', img: 'https://cdn.simpleicons.org/tailwindcss/06B6D4', color: '#06B6D4' },
@@ -72,3 +72,4 @@ const TechStrip = () => {
 };
 
 export default TechStrip;
+

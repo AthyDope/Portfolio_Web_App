@@ -4,7 +4,7 @@ import Container from '../components/layout/Container';
 import { Send, Mail, MapPin, MessageCircle, CheckCircle, AlertCircle, Clock, Shield, ChevronDown, Briefcase, Rocket, Handshake, Lightbulb, MessageSquare } from 'lucide-react';
 import usePageTitle from '../hooks/usePageTitle';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000' : '');
 
 // ── Custom Dropdown ────────────────────────────────────────────────
 const Dropdown = ({ name, value, onChange, placeholder, options }) => {
@@ -384,3 +384,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
