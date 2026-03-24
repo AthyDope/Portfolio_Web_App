@@ -1,5 +1,136 @@
 export const PROJECTS = [
     {
+        id: 7,
+        title: 'Shrimant Dagdusheth Halwai Ganpati Trust Website',
+        subtitle: 'Official temple platform for darshan, seva, and donations',
+        description: 'Official website for the Shrimant Dagdusheth Halwai Ganpati Temple, Pune. Brings live darshan online so devotees can watch temple proceedings in real time and access temple services, poojas, and sevas from anywhere. Provides secure online donation flows for multiple temple initiatives, publishes daily timings with live stream and aarti schedules, and highlights key festivals like Ganesh Utsav and Mogra Mohotsav with rich detail. Hosts photo, audio, and video galleries to preserve and share temple heritage, while letting admins embed YouTube links and direct MP3 URLs for quick media updates. Supports booking and slot management for temple services and visit passes with server-side payment verification, OTP/JWT-based authentication, and rate limiting for safer sign-ins. The admin portal enables drag-and-drop content control across lists, the responsive layout works smoothly on mobile and desktop, cloud-hosted image storage keeps galleries fast, and Dockerized setup scripts spin up database, API, and frontend in one step.',
+        category: 'Full Stack',
+        tags: ['React', 'Node.js'],
+        tech: [
+            'React 18',
+            'Vite 5',
+            'React Router 6',
+            'Axios',
+            'Framer Motion',
+            '@dnd-kit',
+            'Node.js',
+            'Express',
+            'PostgreSQL',
+            'JWT',
+            'Multer',
+            'Cloudinary',
+            'Razorpay',
+            'Nodemailer',
+            'Helmet',
+            'CORS',
+            'Docker',
+            'Docker Compose',
+            'Nodemon',
+            'Jest',
+            'Supertest',
+            'ESLint'
+        ],
+        features: [
+            'Live Darshan stream with status and schedule endpoints',
+            'E-Seva and pooja bookings with slot availability APIs',
+            'Online donations powered by Razorpay with post-payment verification',
+            'Events hub for upcoming and featured temple programs',
+            'Multimedia galleries (photo, audio, video) with easy URL-based uploads',
+            'Drag-and-drop ordering for timings, events, galleries, and announcements',
+            'Admin dashboard with quick actions, audit logging, and responsive cards',
+            'PDF/print support for passes and confirmations via html2canvas + jsPDF',
+            'Secure user management with JWT, bcrypt, and role-based access',
+            'Troubleshooting guides and scripted setup paths for faster onboarding'
+        ],
+        image: '/projects/dagdusheth-ganpati.jpeg',
+        images: ['/projects/dagdusheth-ganpati.jpeg'],
+        github: 'https://github.com/AthyDope',
+        demo: '#',
+    },
+    {
+        id: 8,
+        title: 'Nandini Seeds',
+        subtitle: 'Agricultural e-commerce and farming knowledge platform for seed buyers',
+        description: 'Nandini Seeds is a production-ready, fully responsive agri-commerce platform built for a real seed business in Solapur, Maharashtra. It combines a digital storefront for certified seeds (including Onion, Green Moong Dal, and Premium Urad Dal) with practical farmer-first tools such as seasonal planning, crop guidance, and purchase decision support. The platform is designed for accessibility through WhatsApp-first ordering, strong SEO foundations (including LocalBusiness schema, sitemap, robots, and dynamic metadata), and polished UX interactions across routes covering products, guidance, trust assets, and contact workflows.',
+        category: 'Frontend',
+        tags: ['React 19', 'Tailwind CSS'],
+        tech: [
+            'React 19',
+            'React Router DOM v7',
+            'Tailwind CSS v4',
+            'Vite v7',
+            'ESLint 9',
+            'PostCSS',
+            'Autoprefixer',
+            '@tailwindcss/postcss',
+            'npm'
+        ],
+        features: [
+            'Seed catalog with yield, crop duration, seed rate, pricing tiers, and bulk discount details',
+            'WhatsApp-based ordering flow with a dedicated order form for low-friction purchases',
+            'Farming guidance center with expert articles and individual detail pages',
+            'Seasonal crop calendar for planting schedule planning across cycles',
+            'Seed comparison and seed quantity calculator tools for better purchase decisions',
+            'Soil and weather information section tailored for practical field readiness',
+            'Delivery coverage map plus gallery, videos, certifications, and success stories pages',
+            'SEO setup with LocalBusiness JSON-LD, sitemap, robots.txt, and dynamic metadata via a custom hook'
+        ],
+        image: '/projects/nandini-seeds/nandini-1.jpeg',
+        images: ['/projects/nandini-seeds/nandini-1.jpeg', '/projects/nandini-seeds/nandini-2.jpeg', '/projects/nandini-seeds/nandini-3.jpeg', '/projects/nandini-seeds/nandini-4.jpeg'],
+        github: 'https://github.com/AthyDope',
+        demo: 'https://nandini-seeds.netlify.app/',
+    },
+    {
+        id: 9,
+        title: 'Atharva Portfolio (Full-Stack Case Study)',
+        subtitle: 'Scalable personal branding platform with animated UX and secure contact workflow',
+        description: 'Atharva Portfolio is a full-stack personal branding website built to showcase developer identity and work. It combines a modern React frontend with an Express backend for production-ready contact handling. The UI is crafted with a premium glassmorphism style and animated transitions. The project is organized as a multi-page portfolio experience with client-side routing across Home, About, Projects, Skills, Contact, Privacy, Terms, Cookies, and a dedicated Not Found page. It includes hero-led conversion messaging, structured tool and certification highlights, narrative About sections (education, experience, achievements, languages, learning), a curated projects gallery with filtering and modal details, and grouped skills with visual proficiency charts powered by Recharts. The contact experience supports custom dropdowns, validation, and high-intent inquiry handling via /api/contact with CORS controls, server-side validation, rate limiting, SMTP environment checks, owner notification emails, and auto-replies for users. Smooth scrolling via Lenis, Framer Motion micro-interactions, route-level lazy loading, suspense fallbacks, reusable layout primitives, modular code organization, and a custom page-title hook keep the app polished and maintainable. Built with Tailwind CSS v4 and Vite, this codebase supports local and deployment workflows, runs frontend and backend together in development using concurrently, includes Docker/docker-compose support, and enforces code quality with ESLint. In short, this project is a complete, scalable, and professional full-stack showcase system suitable for job applications, freelance outreach, and personal brand growth.',
+        category: 'Full Stack',
+        tags: ['React 19', 'Express', 'Tailwind v4'],
+        tech: [
+            'React 19',
+            'React DOM',
+            'React Router DOM',
+            'Vite',
+            'Tailwind CSS v4',
+            'Framer Motion',
+            'Lucide React',
+            'React Icons',
+            'Lenis',
+            'Recharts',
+            'Node.js',
+            'Express.js',
+            'CORS',
+            'express-rate-limit',
+            'dotenv',
+            'Nodemailer',
+            'ESLint',
+            'PostCSS',
+            'Autoprefixer',
+            'concurrently',
+            'Docker',
+            'Docker Compose'
+        ],
+        features: [
+            'Multi-page portfolio with animated route transitions.',
+            'Lazy-loaded routes with skeleton fallback for better UX.',
+            'Modular Home/About/Projects/Skills/Contact page architecture.',
+            'Project filtering by category with modal-based detail view.',
+            'Interactive skill visualization using Recharts.',
+            'Premium motion design using Framer Motion across components.',
+            'Smooth scrolling experience via Lenis integration.',
+            'Contact form with custom dropdowns, validation, and status feedback.',
+            'Secure Express contact API with server-side validation.',
+            'Rate-limited endpoint to prevent spam/abuse.',
+            'Automated owner notification + user auto-reply emails via Nodemailer.',
+            'Legal/compliance pages (Privacy, Terms, Cookies) included.'
+        ],
+        image: '/projects/portfolio/portfolio.jpg',
+        images: ['/projects/portfolio/portfolio.jpg'],
+        github: 'https://github.com/AthyDope',
+        demo: 'https://atharva-chaphe-porfolio.netlify.app/',
+    },
+    {
         id: 1,
         title: 'E-Commerce Platform',
         subtitle: 'A full-featured online store',
@@ -14,7 +145,7 @@ export const PROJECTS = [
             'Admin dashboard for inventory management',
             'SEO-optimized with SSR and dynamic meta tags'
         ],
-        image: '/projects/ecommerce.png',
+        image: '/projects/ecommerce.jpeg',
         github: 'https://github.com/AthyDope',
         demo: '#',
     },
@@ -33,7 +164,7 @@ export const PROJECTS = [
             'Markdown rendering for rich AI responses',
             'Rate-limited backend for secure API key management'
         ],
-        image: '/projects/chatbot.png',
+        image: '/projects/chatbot.jpeg',
         github: 'https://github.com/AthyDope',
         demo: '#',
     },
@@ -52,9 +183,9 @@ export const PROJECTS = [
             'Functional contact form powered by EmailJS',
             'Fully responsive from mobile to 4K'
         ],
-        image: '/projects/portfolio.png',
+        image: '/projects/portfolio/portfolio.jpg',
         github: 'https://github.com/AthyDope',
-        demo: '#',
+        demo: 'https://atharva-chaphe-porfolio.netlify.app/',
     },
     {
         id: 4,
@@ -114,3 +245,14 @@ export const PROJECTS = [
         demo: '#',
     },
 ];
+
+
+
+
+
+
+
+
+
+
+

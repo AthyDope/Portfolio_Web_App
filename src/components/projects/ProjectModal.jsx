@@ -1,17 +1,107 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Github, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { X, Github, ExternalLink, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+
+const AUTOPLAY_INTERVAL = 3500;
+
+const carouselImageVariants = {
+    enter: (direction) => ({
+        x: direction > 0 ? 70 : -70,
+        opacity: 0,
+        scale: 1.02,
+    }),
+    center: {
+        x: 0,
+        opacity: 1,
+        scale: 1,
+    },
+    exit: (direction) => ({
+        x: direction > 0 ? -70 : 70,
+        opacity: 0,
+        scale: 0.99,
+    }),
+};
 
 const ProjectModal = ({ project, onClose }) => {
+    const [isImageViewerOpen, setIsImageViewerOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [slideDirection, setSlideDirection] = useState(1);
+    const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+
+    const projectImages = useMemo(() => {
+        if (!project) return [];
+        if (Array.isArray(project.images) && project.images.length > 0) return project.images;
+        return project.image ? [project.image] : [];
+    }, [project]);
+
+    const hasMultipleImages = projectImages.length > 1;
+    const currentImage = projectImages[currentImageIndex] || project.image;
+
+    const goToImage = useCallback((nextIndex, direction = 1) => {
+        if (!projectImages.length) return;
+        setSlideDirection(direction);
+        setCurrentImageIndex((nextIndex + projectImages.length) % projectImages.length);
+    }, [projectImages.length]);
+
+    const goToPreviousImage = useCallback(() => {
+        if (!hasMultipleImages) return;
+        setSlideDirection(-1);
+        setCurrentImageIndex((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1));
+    }, [hasMultipleImages, projectImages.length]);
+
+    const goToNextImage = useCallback(() => {
+        if (!hasMultipleImages) return;
+        setSlideDirection(1);
+        setCurrentImageIndex((prev) => (prev === projectImages.length - 1 ? 0 : prev + 1));
+    }, [hasMultipleImages, projectImages.length]);
+
+    useEffect(() => {
+        setCurrentImageIndex(0);
+        setSlideDirection(1);
+        setIsImageViewerOpen(false);
+        setIsCarouselPaused(false);
+    }, [project?.id]);
+
     useEffect(() => {
         document.body.style.overflow = 'hidden';
-        const handleKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                if (isImageViewerOpen) {
+                    setIsImageViewerOpen(false);
+                    return;
+                }
+
+                onClose();
+                return;
+            }
+
+            if (e.key === 'ArrowLeft') {
+                goToPreviousImage();
+            }
+
+            if (e.key === 'ArrowRight') {
+                goToNextImage();
+            }
+        };
+
         window.addEventListener('keydown', handleKeyDown);
+
         return () => {
             document.body.style.overflow = '';
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [onClose]);
+    }, [onClose, isImageViewerOpen, goToPreviousImage, goToNextImage]);
+
+    useEffect(() => {
+        if (!hasMultipleImages || isImageViewerOpen || isCarouselPaused) return undefined;
+
+        const intervalId = window.setInterval(() => {
+            goToNextImage();
+        }, AUTOPLAY_INTERVAL);
+
+        return () => window.clearInterval(intervalId);
+    }, [hasMultipleImages, isImageViewerOpen, isCarouselPaused, goToNextImage]);
 
     if (!project) return null;
 
@@ -57,24 +147,106 @@ const ProjectModal = ({ project, onClose }) => {
 
                     {/* Scrollable content */}
                     <div data-lenis-prevent className="overflow-y-auto flex-1 rounded-t-[2rem] md:rounded-[2.5rem]">
-                        {/* Hero Image */}
-                        <div className="relative w-full aspect-[16/7] overflow-hidden shrink-0">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover"
-                            />
+                        {/* Hero Carousel */}
+                        <div
+                            role="button"
+                            tabIndex={0}
+                            className="relative w-full aspect-[16/7] overflow-hidden shrink-0 cursor-zoom-in"
+                            onClick={() => setIsImageViewerOpen(true)}
+                            onMouseEnter={() => setIsCarouselPaused(true)}
+                            onMouseLeave={() => setIsCarouselPaused(false)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    setIsImageViewerOpen(true);
+                                }
+                            }}
+                            aria-label={`Open full image for ${project.title}`}
+                        >
+                            <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+                                <motion.img
+                                    key={`${project.id}-${currentImageIndex}`}
+                                    custom={slideDirection}
+                                    variants={carouselImageVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                                    src={currentImage}
+                                    alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                            </AnimatePresence>
+
                             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]" />
                             <div className="absolute top-5 left-5">
                                 <span className="px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] bg-black/60 backdrop-blur-xl text-brand-400 border border-brand-500/40 rounded-full">
                                     {project.category}
                                 </span>
                             </div>
+                            <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-lg bg-black/50 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
+                                Click to Expand
+                            </div>
+
+                            {hasMultipleImages && (
+                                <>
+                                    <div className="absolute top-0 left-0 h-1 w-full bg-black/20">
+                                        <motion.div
+                                            key={`progress-${currentImageIndex}-${isCarouselPaused}`}
+                                            initial={{ width: '0%' }}
+                                            animate={{ width: isCarouselPaused ? '0%' : '100%' }}
+                                            transition={{ duration: isCarouselPaused ? 0 : AUTOPLAY_INTERVAL / 1000, ease: 'linear' }}
+                                            className="h-full bg-brand-500/80"
+                                        />
+                                    </div>
+
+                                    <button
+                                        type="button"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            goToPreviousImage();
+                                        }}
+                                        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-xl bg-black/50 border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center"
+                                        aria-label="Previous screenshot"
+                                    >
+                                        <ChevronLeft size={20} />
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            goToNextImage();
+                                        }}
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-xl bg-black/50 border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center"
+                                        aria-label="Next screenshot"
+                                    >
+                                        <ChevronRight size={20} />
+                                    </button>
+
+                                    <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-lg bg-black/50 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
+                                        {currentImageIndex + 1} / {projectImages.length}
+                                    </div>
+
+                                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+                                        {projectImages.map((_, idx) => (
+                                            <button
+                                                key={`dot-${idx}`}
+                                                type="button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    goToImage(idx, idx > currentImageIndex ? 1 : -1);
+                                                }}
+                                                className={`h-2 rounded-full transition-all ${idx === currentImageIndex ? 'w-7 bg-white' : 'w-2 bg-white/45 hover:bg-white/70'}`}
+                                                aria-label={`Go to screenshot ${idx + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
                         </div>
 
                         {/* Content */}
                         <div className="relative z-10 px-4 sm:px-6 md:px-12 pb-8 sm:pb-12 pt-2">
-                            {/* Title & Description */}
                             <div className="mb-8 sm:mb-10">
                                 <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tighter mb-4">
                                     {project.title}
@@ -85,7 +257,6 @@ const ProjectModal = ({ project, onClose }) => {
                             </div>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                                {/* Key Features */}
                                 <div>
                                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-brand-400 mb-5 flex items-center gap-2">
                                         <span className="w-6 h-px bg-brand-500 inline-block" />
@@ -107,7 +278,6 @@ const ProjectModal = ({ project, onClose }) => {
                                     </ul>
                                 </div>
 
-                                {/* Tech Stack */}
                                 <div>
                                     <h3 className="text-xs font-black uppercase tracking-[0.2em] text-indigo-400 mb-5 flex items-center gap-2">
                                         <span className="w-6 h-px bg-indigo-500 inline-block" />
@@ -129,7 +299,6 @@ const ProjectModal = ({ project, onClose }) => {
                                 </div>
                             </div>
 
-                            {/* Action Buttons */}
                             <div className="flex flex-wrap gap-4 mt-10 pt-8 border-t border-white/5">
                                 {project.demo && project.demo !== '#' && (
                                     <a
@@ -159,6 +328,75 @@ const ProjectModal = ({ project, onClose }) => {
                     </div>
                 </motion.div>
             </div>
+
+            {isImageViewerOpen && (
+                <motion.div
+                    key="image-viewer"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-sm p-4 sm:p-8 md:p-12 flex items-center justify-center"
+                    onClick={() => setIsImageViewerOpen(false)}
+                    onMouseEnter={() => setIsCarouselPaused(true)}
+                    onMouseLeave={() => setIsCarouselPaused(false)}
+                >
+                    <button
+                        type="button"
+                        onClick={() => setIsImageViewerOpen(false)}
+                        className="absolute top-5 right-5 z-20 w-11 h-11 flex items-center justify-center rounded-2xl bg-black/50 border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 transition-all"
+                        aria-label="Close image preview"
+                    >
+                        <X size={20} />
+                    </button>
+
+                    {hasMultipleImages && (
+                        <>
+                            <button
+                                type="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    goToPreviousImage();
+                                }}
+                                className="absolute left-5 sm:left-8 md:left-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-2xl bg-black/50 border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center"
+                                aria-label="Previous screenshot"
+                            >
+                                <ChevronLeft size={20} />
+                            </button>
+                            <button
+                                type="button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    goToNextImage();
+                                }}
+                                className="absolute right-5 sm:right-8 md:right-12 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-2xl bg-black/50 border border-white/20 text-slate-300 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center"
+                                aria-label="Next screenshot"
+                            >
+                                <ChevronRight size={20} />
+                            </button>
+                            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 px-3 py-1.5 rounded-lg bg-black/50 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider">
+                                {currentImageIndex + 1} / {projectImages.length}
+                            </div>
+                        </>
+                    )}
+
+                    <AnimatePresence initial={false} custom={slideDirection} mode="wait">
+                        <motion.img
+                            key={`viewer-${project.id}-${currentImageIndex}`}
+                            custom={slideDirection}
+                            variants={carouselImageVariants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                            src={currentImage}
+                            alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                            className="max-w-full max-h-full object-contain rounded-2xl border border-white/10 shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                    </AnimatePresence>
+                </motion.div>
+            )}
         </AnimatePresence>
     );
 };

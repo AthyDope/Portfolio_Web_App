@@ -5,6 +5,7 @@ import { Code, Database, Settings, Layout, Globe, Server, Terminal, Cpu, Github,
 import TechProficiency from '../components/skills/TechProficiency';
 import ToolsWorkflows from '../components/skills/ToolsWorkflows';
 import SoftSkills from '../components/skills/SoftSkills';
+import CurrentlyLearning from '../components/about/CurrentlyLearning';
 import usePageTitle from '../hooks/usePageTitle';
 
 const Skills = () => {
@@ -151,6 +152,7 @@ const Skills = () => {
                 
                 <TechProficiency />
                 <ToolsWorkflows />
+                <CurrentlyLearning />
                 <SoftSkills />
             </div>
         </motion.div>

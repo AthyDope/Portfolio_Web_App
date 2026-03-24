@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProjectCard = ({ project, onClick }) => {
+    const previewImage = project.images?.[0] || project.image;
+    const hasLiveDemo = project.demo && project.demo !== '#';
+
     return (
         <motion.div
             className="group perspective-1000 h-full cursor-pointer"
@@ -16,11 +19,11 @@ const ProjectCard = ({ project, onClick }) => {
                 {/* Image Container with Internal Hover Effects */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[1.5rem] mb-8 shadow-2xl border border-white/5">
                     <img
-                        src={project.image}
+                        src={previewImage}
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    
+
                     {/* Premium Hover Overlay */}
                     <div className="absolute inset-0 bg-brand-900/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                         <motion.div
@@ -44,15 +47,28 @@ const ProjectCard = ({ project, onClick }) => {
                     <h3 className="text-xl sm:text-3xl font-black text-white mb-3 tracking-tighter group-hover:text-brand-400 transition-colors duration-300">
                         {project.title}
                     </h3>
-                    
-                    <p className="text-slate-400 text-sm mb-8 leading-relaxed font-bold opacity-70 line-clamp-2">
+
+                    <p className="text-slate-400 text-sm mb-4 leading-relaxed font-bold opacity-70 line-clamp-2">
                         {project.subtitle}
                     </p>
 
+                    {hasLiveDemo && (
+                        <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-brand-400 hover:text-brand-300 transition-colors mb-7"
+                        >
+                            Live Project
+                            <ArrowUpRight size={14} />
+                        </a>
+                    )}
+
                     <div className="mt-auto flex flex-wrap gap-2.5">
                         {project.tags.map((tag, index) => (
-                            <span 
-                                key={index} 
+                            <span
+                                key={index}
                                 className="px-4 py-1.5 text-[10px] font-black text-slate-300 bg-white/5 border border-white/10 rounded-xl group-hover:border-brand-500/40 group-hover:text-white group-hover:bg-brand-600/10 transition-all duration-300 shadow-lg"
                             >
                                 {tag}
