@@ -258,3 +258,34 @@ html.lenis, html.lenis body {
 html {
     scroll-behavior: smooth;
 }
+.hero-name-gradient {
+    background: linear-gradient(
+        112deg,
+        #ff5ea8 0%,
+        #ff8a5b 16%,
+        #ffd35f 32%,
+        #5af7c2 48%,
+        #5ecbff 64%,
+        #7aa2ff 80%,
+        #b889ff 92%,
+        #ff5ea8 100%
+    );
+    background-size: 320% 320%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 10px 24px rgba(122, 162, 255, 0.2));
+    animation: heroPremiumFlow 10s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+@keyframes heroPremiumFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

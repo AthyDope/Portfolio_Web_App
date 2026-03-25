@@ -36,7 +36,7 @@ const Hero = () => {
                     >
                         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4 text-white tracking-tight">
                             Hi, I'm <br />
-                            <span className="text-gradient-alt">Atharva Chaphe</span>
+                            <span className="hero-name-gradient">Atharva Chaphe</span>
                         </h1>
 
                         <div className="h-8 sm:h-10 mb-6">
@@ -109,3 +109,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
