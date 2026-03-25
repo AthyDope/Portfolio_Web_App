@@ -32,7 +32,7 @@ const Hero = () => {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex flex-col justify-center"
+                        className="order-2 lg:order-1 flex flex-col justify-center"
                     >
                         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-4 text-white tracking-tight">
                             Hi, I'm <br />
@@ -73,7 +73,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                        className="relative perspective-1000 hidden lg:block"
+                        className="order-1 lg:order-2 relative perspective-1000 w-full max-w-[320px] sm:max-w-[420px] lg:max-w-none mx-auto"
                     >
                         <motion.div 
                             className="relative w-full max-w-lg xl:max-w-xl mx-auto group"
@@ -92,7 +92,7 @@ const Hero = () => {
                                 <img
                                     src="/hero-main.png"
                                     alt="Atharva Chaphe - Developer"
-                                    className="w-full h-auto max-h-[65vh] object-contain transition-transform duration-1000 group-hover:scale-105"
+                                    className="w-full h-auto max-h-[42vh] sm:max-h-[50vh] lg:max-h-[65vh] object-contain transition-transform duration-1000 group-hover:scale-105"
                                 />
                             </motion.div>
                             
@@ -109,4 +109,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
