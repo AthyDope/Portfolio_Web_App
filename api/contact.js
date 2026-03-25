@@ -2,59 +2,32 @@ import nodemailer from 'nodemailer';
 
 const REQUIRED_ENV = ['SMTP_HOST', 'SMTP_USER', 'SMTP_PASS', 'OWNER_EMAIL'];
 
-const defaultHeaders = {
-    'Content-Type': 'application/json',
-};
+const send = (res, status, body) => res.status(status).json(body);
 
-const badRequest = (message) => ({
-    statusCode: 400,
-    headers: defaultHeaders,
-    body: JSON.stringify({ error: message }),
-});
-
-const serverError = (message) => ({
-    statusCode: 500,
-    headers: defaultHeaders,
-    body: JSON.stringify({ error: message }),
-});
-
-export async function handler(event) {
-    if (event.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 200,
-            headers: defaultHeaders,
-            body: JSON.stringify({ ok: true }),
-        };
+export default async function handler(req, res) {
+    if (req.method === 'OPTIONS') {
+        return send(res, 200, { ok: true });
     }
 
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            headers: defaultHeaders,
-            body: JSON.stringify({ error: 'Method not allowed.' }),
-        };
+    if (req.method !== 'POST') {
+        return send(res, 405, { error: 'Method not allowed.' });
     }
 
     const missing = REQUIRED_ENV.filter((k) => !process.env[k]);
     if (missing.length) {
-        return serverError(`Missing required env vars: ${missing.join(', ')}`);
+        return send(res, 500, { error: `Missing required env vars: ${missing.join(', ')}` });
     }
 
-    let payload;
-    try {
-        payload = JSON.parse(event.body || '{}');
-    } catch {
-        return badRequest('Invalid JSON payload.');
-    }
-
+    const payload = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     const { name, email, phone, subject, budget, message } = payload;
+
     if (!name?.trim() || !email?.trim() || !message?.trim()) {
-        return badRequest('Name, email, and message are required.');
+        return send(res, 400, { error: 'Name, email, and message are required.' });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        return badRequest('Invalid email address.');
+        return send(res, 400, { error: 'Invalid email address.' });
     }
 
     const transporter = nodemailer.createTransport({
@@ -95,12 +68,9 @@ export async function handler(event) {
             text: `Hi ${firstName},\n\nThanks for your message about "${resolvedSubject}". I have received it and will get back to you soon.\n\n- Atharva`,
         });
 
-        return {
-            statusCode: 200,
-            headers: defaultHeaders,
-            body: JSON.stringify({ success: true }),
-        };
+        return send(res, 200, { success: true });
     } catch (err) {
-        return serverError(err?.message || 'Failed to send email. Please try again.');
+        return send(res, 500, { error: err?.message || 'Failed to send email. Please try again.' });
     }
 }
+

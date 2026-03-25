@@ -46,10 +46,10 @@ const Hero = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-200 flex items-center gap-3"
+                                    transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                                    className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold flex items-center gap-3 role-premium"
                                 >
-                                    {ROLES[roleIndex]} <span className="text-brand-500">_</span>
+                                    <span className="role-premium-text">{ROLES[roleIndex]}</span><span className="role-premium-caret" aria-hidden="true" />
                                 </motion.h2>
                             </AnimatePresence>
                         </div>

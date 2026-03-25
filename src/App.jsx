@@ -7,12 +7,18 @@ import CTA from './components/home/CTA';
 import ScrollToTop from './components/common/ScrollToTop';
 import RouteScrollToTop from './components/common/RouteScrollToTop';
 import ScrollIndicator from './components/common/ScrollIndicator';
+import StarParticles from './components/common/StarParticles';
 
 function App() {
     return (
         <ReactLenis root>
-            <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500/30">
+            <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500/30 relative">
                 <RouteScrollToTop />
+                <StarParticles
+                    count={140}
+                    containerClassName="fixed inset-0 z-30"
+                    className="mix-blend-screen opacity-80"
+                />
                 <Navbar />
                 <ScrollIndicator />
                 <ScrollToTop />

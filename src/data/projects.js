@@ -128,7 +128,7 @@ export const PROJECTS = [
         image: '/projects/portfolio/portfolio.jpg',
         images: ['/projects/portfolio/portfolio.jpg'],
         github: 'https://github.com/AthyDope',
-        demo: 'https://atharva-chaphe-porfolio.netlify.app/',
+        demo: 'https://atharva-chaphe-porfolio.vercel.app/',
     },
     {
         id: 10,
@@ -214,7 +214,7 @@ export const PROJECTS = [
         ],
         image: '/projects/portfolio/portfolio.jpg',
         github: 'https://github.com/AthyDope',
-        demo: 'https://atharva-chaphe-porfolio.netlify.app/',
+        demo: 'https://atharva-chaphe-porfolio.vercel.app/',
     },
     {
         id: 4,
@@ -274,6 +274,7 @@ export const PROJECTS = [
         demo: '#',
     },
 ];
+
 
 
 

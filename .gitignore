@@ -31,3 +31,7 @@ server/.env
 # Build debug logs
 build-debug.txt
 build-error*.txt
+
+# Vercel
+.vercel
+

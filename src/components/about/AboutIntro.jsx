@@ -46,7 +46,7 @@ const AboutIntro = () => {
                         
                         <div className="space-y-6 text-slate-300 text-base sm:text-xl leading-relaxed font-medium opacity-90">
                             <p>
-                                I'm Atharva Chaphe, a dedicated <span className="text-white font-black underline decoration-brand-500 decoration-4 underline-offset-4">Full Stack Developer</span> and <span className="text-white font-black underline decoration-brand-500 decoration-4 underline-offset-4">Data Science enthusiast</span> with a track record of building performant web applications. My focus is on creating seamless, high-end digital experiences that balance form and function perfectly.
+                                I'm Atharva Chaphe, a dedicated <span className="text-white font-black headline-reveal-underline">Full Stack Developer</span> and <span className="text-white font-black headline-reveal-underline">Data Science enthusiast</span> with a track record of building performant web applications. My focus is on creating seamless, high-end digital experiences that balance form and function perfectly.
                             </p>
                             <p className="text-slate-400 text-lg opacity-80 leading-relaxed max-w-xl">
                                 With expertise in both frontend brilliance and backend robustness, I bridge the gap between complex logic and elegant user interfaces. I don't just write code; I design systems that solve real-world problems.

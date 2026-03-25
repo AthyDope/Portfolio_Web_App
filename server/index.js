@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cors({
     origin: (process.env.CLIENT_ORIGIN
         ? process.env.CLIENT_ORIGIN.split(',').map((o) => o.trim()).filter(Boolean)
-        : ['http://localhost:5173', 'https://atharva-chaphe-porfolio.netlify.app']),
+        : ['http://localhost:5173', 'https://atharva-chaphe-porfolio.vercel.app']),
     methods: ['POST', 'OPTIONS'],
 }));
 
@@ -264,4 +264,5 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+
 
