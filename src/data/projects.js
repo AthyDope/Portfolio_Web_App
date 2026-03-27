@@ -42,8 +42,16 @@ export const PROJECTS = [
             'Secure user management with JWT, bcrypt, and role-based access',
             'Troubleshooting guides and scripted setup paths for faster onboarding'
         ],
-        image: '/projects/dagdusheth-ganpati.jpeg',
-        images: ['/projects/dagdusheth-ganpati.jpeg'],
+        image: '/projects/dagdusheth/dagdusheth-ganpati-1.jpeg',
+        images: [
+            '/projects/dagdusheth/dagdusheth-ganpati-1.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-2.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-3.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-4.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-5.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-6.jpeg',
+            '/projects/dagdusheth/dagdusheth-ganpati-7.jpeg'
+        ],
         github: 'https://github.com/AthyDope',
         demo: '#',
     },
@@ -79,6 +87,49 @@ export const PROJECTS = [
         images: ['/projects/nandini-seeds/nandini-1.jpeg', '/projects/nandini-seeds/nandini-2.jpeg', '/projects/nandini-seeds/nandini-3.jpeg', '/projects/nandini-seeds/nandini-4.jpeg'],
         github: 'https://github.com/AthyDope',
         demo: 'https://nandini-seeds.netlify.app/',
+    },
+    {
+        id: 11,
+        title: 'Employee Management',
+        subtitle: 'Premium Enterprise Resource Planning (ERP) solution for the modern workplace',
+        description: 'The Employee Portal is a cutting-edge Enterprise Resource Planning (ERP) solution designed for the modern digital workplace. It provides a unified digital home for every team member with a high-end, premium aesthetic featuring glassmorphism, fluid micro-animations, and a sophisticated 12-column grid system. Key functionalities include real-time time tracking with session persistence, intuitive attendance regularization workflows, dynamic leave management, and a centralized document repository. Built with React 18 and Vite, it prioritizes performance, robust state management, and a zero-weight build without bulky third-party UI dependencies. The architecture emphasizes modern CSS3 design tokens and tailored custom components, establishing a new benchmark for corporate tools that combine visual excellence with technical precision.',
+        category: 'Frontend',
+        tags: ['React 18', 'Vite', 'CSS3'],
+        tech: [
+            'React 18',
+            'Vite',
+            'Vanilla CSS3',
+            'CSS Variables',
+            'React Hooks',
+            'Responsive Flexbox/Grid'
+        ],
+        features: [
+            'Premium Dashboard: High-end 12-column grid layout with glassmorphic cards.',
+            'Real-Time Time Tracking: Live digital counter with session persistence.',
+            'Standardized Icon System: Professional, themed custom SVG icons.',
+            'Attendance History: Comprehensive chronological logs of daily records.',
+            'Regularization Workflow: Intuitive process for attendance corrections.',
+            'Leave Management: Dynamic balance tracking with visual progress bars.',
+            'Upcoming Events: Integrated cards for team meetings and holidays.',
+            'Recent Activity Feed: Real-time audit trail and request notifications.',
+            'Team Directory: Visual overview of team structure and managers.',
+            'Global Search & Navigation: Unified routing with one-click view switching.',
+            'Document Repository: Secure access to company policies and records.',
+            'Micro-Animations: Elegant hover effects and page transitions.'
+        ],
+        image: '/projects/employee-portfolio/dashboard-3.jpg',
+        images: [
+            '/projects/employee-portfolio/dashboard-3.jpg',
+            '/projects/employee-portfolio/login-1.jpg',
+            '/projects/employee-portfolio/signup-2.jpg',
+            '/projects/employee-portfolio/attendance-5.jpg',
+            '/projects/employee-portfolio/attendance-regularization-6.jpg',
+            '/projects/employee-portfolio/request-correction-7.jpg',
+            '/projects/employee-portfolio/documents-4.jpg',
+            '/projects/employee-portfolio/profile-8.jpg'
+        ],
+        github: '#',
+        demo: '#',
     },
     {
         id: 9,
