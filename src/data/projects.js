@@ -86,7 +86,7 @@ export const PROJECTS = [
         image: '/projects/nandini-seeds/nandini-1.jpeg',
         images: ['/projects/nandini-seeds/nandini-1.jpeg', '/projects/nandini-seeds/nandini-2.jpeg', '/projects/nandini-seeds/nandini-3.jpeg', '/projects/nandini-seeds/nandini-4.jpeg'],
         github: 'https://github.com/AthyDope',
-        demo: 'https://nandini-seeds.netlify.app/',
+        demo: 'https://nandini-seeds-virid.vercel.app/',
     },
     {
         id: 11,
@@ -209,6 +209,49 @@ export const PROJECTS = [
         images: ['/projects/library-management/library-managment.png'],
         github: 'https://github.com/AthyDope',
         demo: '#',
+    },
+    {
+        id: 12,
+        title: 'Netflix Clone',
+        subtitle: 'Pixel-perfect, fully responsive Netflix landing page clone with premium UI enhancements',
+        description: 'A pixel-perfect, fully responsive clone of the Netflix landing page built entirely with HTML and CSS — no JavaScript frameworks, no UI libraries, just clean vanilla web technologies. The goal was to replicate the look, feel, and interactivity of the real Netflix landing page as closely as possible, while going beyond a basic clone by adding premium UI enhancements like scroll-reveal animations, custom dropdowns, animated sections, and a polished design system.\n\nThe project starts with a full-viewport hero section featuring a cinematic background image, a floating label email form, and a trust strip. Below the hero, a Trending Now slider showcases 10 shows with numbered poster cards, hover overlays, and left/right navigation arrows.\n\nEach content section — Enjoy on your TV, Download your shows, Watch everywhere, and Create profiles for kids — has been individually designed with red-accented badges, gradient headings, SVG icon grids, stats bars, animated cards, and device compatibility grids. Every section follows the same dark Netflix design language: pure black backgrounds, #e50914 red accents, white gradient typography, and subtle radial glows.\n\nThe FAQ section features an interactive accordion built with pure CSS details elements, a red rotating + icon, and a repeated email CTA. The footer includes the NETFLIX logo, social media icons, a 4-column link grid, and a custom credit line. The navbar is fixed with a scroll-triggered background, a custom language dropdown with animated open/close, and a glowing NETFLIX logo that breathes with a continuous red pulse animation.',
+        category: 'Frontend',
+        tags: ['HTML5', 'CSS3', 'JavaScript'],
+        tech: [
+            'HTML5',
+            'CSS3',
+            'Vanilla JavaScript',
+            'Google Fonts (Inter)',
+            'SVG (inline)',
+            'IntersectionObserver API',
+            'Git & GitHub',
+            'Local Assets'
+        ],
+        features: [
+            'Fixed navbar with scroll-triggered dark background and glowing animated NETFLIX logo',
+            'Custom language selector dropdown with smooth open/close animation and red accent styling',
+            'Full-viewport hero with floating label email input, animated text entrance, and trust strip',
+            'Trending Now horizontal slider with numbered poster cards, hover overlays, and arrow navigation',
+            '4 enhanced content sections — each with badge, gradient title, SVG icon features, and stats/device grids',
+            'Animated download progress bar card and pulsing download icon in the Download section',
+            'Pure CSS FAQ accordion with rotating red icon, border glow on open, and smooth answer animation',
+            'Kids section with local profile image replacing the old graphic mockup',
+            'Premium footer with NETFLIX logo, social icons, link grid, and scroll-to-top on logo click',
+            'Scroll-reveal animations on all sections using IntersectionObserver'
+        ],
+        image: '/projects/netflix-clone/netflix-1.jpg',
+        images: [
+            '/projects/netflix-clone/netflix-1.jpg',
+            '/projects/netflix-clone/netflix-2.jpg',
+            '/projects/netflix-clone/netflix-3.jpg',
+            '/projects/netflix-clone/netflix-4.jpg',
+            '/projects/netflix-clone/netflix-5.jpg',
+            '/projects/netflix-clone/netflix-6.jpg',
+            '/projects/netflix-clone/netflix-7.jpg',
+            '/projects/netflix-clone/netflix-8.jpg'
+        ],
+        github: 'https://github.com/AthyDope/Netflix-Clone',
+        demo: 'https://netflix-clone-nine-weld-74.vercel.app/',
     },
     {
         id: 1,
