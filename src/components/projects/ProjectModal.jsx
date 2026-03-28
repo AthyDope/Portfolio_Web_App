@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
+import GithubAccessModal from './GithubAccessModal';
 
 const AUTOPLAY_INTERVAL = 3500;
 
@@ -27,6 +28,7 @@ const ProjectModal = ({ project, onClose }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [slideDirection, setSlideDirection] = useState(1);
     const [isCarouselPaused, setIsCarouselPaused] = useState(false);
+    const [isGithubModalOpen, setIsGithubModalOpen] = useState(false);
 
     const projectImages = useMemo(() => {
         if (!project) return [];
@@ -313,15 +315,15 @@ const ProjectModal = ({ project, onClose }) => {
                                     </a>
                                 )}
                                 {project.github && (
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <motion.button
+                                        onClick={() => setIsGithubModalOpen(true)}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.97 }}
                                         className="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-white/20 hover:bg-white/10 font-black text-sm tracking-wide transition-all"
                                     >
                                         <Github size={16} />
                                         <span>View on GitHub</span>
-                                    </a>
+                                    </motion.button>
                                 )}
                             </div>
                         </div>
@@ -329,8 +331,9 @@ const ProjectModal = ({ project, onClose }) => {
                 </motion.div>
             </div>
 
-            {isImageViewerOpen && (
-                <motion.div
+            <GithubAccessModal isOpen={isGithubModalOpen} onClose={() => setIsGithubModalOpen(false)} />
+
+            {isImageViewerOpen && (                <motion.div
                     key="image-viewer"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
