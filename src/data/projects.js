@@ -137,7 +137,7 @@ export const PROJECTS = [
             '/projects/meow-bnb/meow-12.jpg'
         ],
         github: 'https://github.com/AthyDope',
-        demo: '#',
+        demo: 'https://meow-bnb.vercel.app/',
     },
     {
         id: 11,
@@ -233,35 +233,6 @@ export const PROJECTS = [
         demo: 'https://atharva-chaphe-porfolio.vercel.app/',
     },
     {
-        id: 10,
-        title: 'Library Management System (CLI)',
-        subtitle: 'Menu-driven Python app for local book record management',
-        description: 'This project is a command-line Library Management System built in Python to manage a small local list of books. The main logic lives in library management.py and follows a simple menu-driven loop where users add, view, borrow, return, and delete books using terminal input/output. Records are stored in books.txt using | as a delimiter with fields title, author, and status. On startup, the app loads existing data if present and initializes an empty list when the file is missing. Before exit, all updates are saved back to books.txt for persistence across sessions. The architecture is procedural and function-based, making it beginner-friendly for learning CRUD, file handling, loops, and conditional logic.',
-        category: 'Backend',
-        tags: ['Python', 'CLI', 'File Handling'],
-        tech: [
-            'Python',
-            'CLI/Terminal',
-            'os',
-            'Plain Text Storage (books.txt)'
-        ],
-        features: [
-            'Loads existing books from books.txt at startup.',
-            'Saves all updated book data on exit.',
-            'Adds new books with title and author input.',
-            'Displays all books with serial number and current status.',
-            'Borrows a book by changing status to Borrowed.',
-            'Returns a book by changing status to Available.',
-            'Deletes a selected book from the collection.',
-            'Provides a menu-based CLI for easy navigation.',
-            'Handles missing storage file by initializing an empty library.'
-        ],
-        image: '/projects/library-management/library-managment.png',
-        images: ['/projects/library-management/library-managment.png'],
-        github: 'https://github.com/AthyDope',
-        demo: '#',
-    },
-    {
         id: 12,
         title: 'Netflix Clone',
         subtitle: 'Pixel-perfect, fully responsive Netflix landing page clone with premium UI enhancements',
@@ -303,6 +274,35 @@ export const PROJECTS = [
         ],
         github: 'https://github.com/AthyDope/Netflix-Clone',
         demo: 'https://netflix-clone-nine-weld-74.vercel.app/',
+    },
+    {
+        id: 10,
+        title: 'Library Management System (CLI)',
+        subtitle: 'Menu-driven Python app for local book record management',
+        description: 'This project is a command-line Library Management System built in Python to manage a small local list of books. The main logic lives in library management.py and follows a simple menu-driven loop where users add, view, borrow, return, and delete books using terminal input/output. Records are stored in books.txt using | as a delimiter with fields title, author, and status. On startup, the app loads existing data if present and initializes an empty list when the file is missing. Before exit, all updates are saved back to books.txt for persistence across sessions. The architecture is procedural and function-based, making it beginner-friendly for learning CRUD, file handling, loops, and conditional logic.',
+        category: 'Backend',
+        tags: ['Python', 'CLI', 'File Handling'],
+        tech: [
+            'Python',
+            'CLI/Terminal',
+            'os',
+            'Plain Text Storage (books.txt)'
+        ],
+        features: [
+            'Loads existing books from books.txt at startup.',
+            'Saves all updated book data on exit.',
+            'Adds new books with title and author input.',
+            'Displays all books with serial number and current status.',
+            'Borrows a book by changing status to Borrowed.',
+            'Returns a book by changing status to Available.',
+            'Deletes a selected book from the collection.',
+            'Provides a menu-based CLI for easy navigation.',
+            'Handles missing storage file by initializing an empty library.'
+        ],
+        image: '/projects/library-management/library-managment.png',
+        images: ['/projects/library-management/library-managment.png'],
+        github: 'https://github.com/AthyDope',
+        demo: '#',
     },
     {
         id: 1,
