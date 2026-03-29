@@ -1,5 +1,42 @@
 export const PROJECTS = [
     {
+        id: 14,
+        title: 'Amazon Clone',
+        subtitle: 'A meticulously crafted front-end web project replicating the world\'s leading e-commerce platform',
+        description: 'The Amazon Clone is a meticulously crafted front-end web project designed to replicate the look, feel, and user experience of the world\'s leading e-commerce platform. This project serves as a comprehensive demonstration of modern UI design principles and responsive web development. At its core, it focuses on recreating the iconic Amazon interface with high fidelity, paying close attention to visual details, routing structures, and interactive elements. From the recognizable navigation bar to the detailed product grids, every component has been thoughtfully modeled to mirror the real-world application. The project emphasizes visual excellence through premium design choices, utilizing glassmorphism, dynamic animations, and vibrant typography to elevate the standard e-commerce aesthetic. It includes a fully functional layout featuring a dynamic hero section that captures user attention immediately upon landing. The comprehensive category cards are styled with smooth hover effects, ensuring an engaging and tactile browsing experience. Advanced CSS techniques have been thoughtfully employed to create a polished, production-ready interface that goes beyond simple structural mimicry. Cross-browser compatibility and responsive design are key focus areas, making the layout adaptable across various screen sizes and devices. Whether viewed on a desktop monitor, large tablet, or mobile phone, the user interface gracefully scales to maintain superior usability and visual integrity without breaking the layout. The project also explores the integration of high-quality external assets, using custom Python scripts to scrape, fetch, and populate engaging product imagery dynamically from platforms like Unsplash. This ensures the design isn\'t just filled with static placeholders but rather feels alive, contextual, and fully realized. By prioritizing clean code architecture and modular styling, the project offers a extremely robust foundation for future expansions such as adding backend integration or state management features. It stands as a testament to the power of vanilla web technologies, proving that complex, highly interactive, and beautiful web interfaces can be achieved without relying exclusively on heavy JavaScript frameworks. Ultimately, this Amazon Clone is significantly more than just a copy; it is an in-depth study in premium user interface design, pushing the boundaries of what a modern e-commerce front-end can achieve.',
+        category: 'Frontend',
+        tags: ['HTML5', 'CSS3', 'Python'],
+        tech: [
+            'HTML5',
+            'Vanilla CSS3',
+            'Python 3',
+            'External APIs (Unsplash)'
+        ],
+        features: [
+            'Responsive Design System: The layout seamlessly adapts to mobile, tablet, and desktop viewports',
+            'Premium Navigation Bar: Features an accurate search bar, custom language dropdowns, and a sign-in interface',
+            'Dynamic Hero Section: Contains an engaging full-width image presentation to highlight featured content',
+            'Enhanced Category Layouts: Aesthetically pleasing product category grids and structured item cards',
+            'Modern Styling Techniques: Leverages advanced CSS traits like glassmorphism, linear gradients, and soft shadows',
+            'Rich Micro-Interactions: Features smooth hover states, custom transitions, and subtle animations on interactive elements',
+            'High-Quality Imagery Integration: Automated population of beautiful, contextual placeholder product images throughout',
+            'Consistent Brand Replication: Highly accurate reproduction of recognizable primary brand colors and custom typography',
+            'Semantic HTML Structure: An accessible structural foundation that prioritizes clarity and organization',
+            'Scalable Component Architecture: Reusable vanilla CSS utility classes modeled for high modularity',
+            'Comprehensive Footer Mapping: A detailed multi-column footer structure faithfully mirroring the complex original design',
+            'Custom Automation Scripts: Includes Python-based utilities for highly efficient external asset fetching and DOM replacement'
+        ],
+        image: '/projects/amazon-clone/amazon-1.png',
+        images: [
+            '/projects/amazon-clone/amazon-1.png',
+            '/projects/amazon-clone/amazon-2.png',
+            '/projects/amazon-clone/amazon-3.png',
+            '/projects/amazon-clone/amazon-4.png'
+        ],
+        github: 'https://github.com/AthyDope',
+        demo: 'https://amazon-clone-gilt-nine-31.vercel.app/',
+    },
+    {
         id: 7,
         title: 'Shrimant Dagdusheth Halwai Ganpati Trust Website',
         subtitle: 'Official temple platform for darshan, seva, and donations',
