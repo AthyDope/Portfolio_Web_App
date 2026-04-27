@@ -3,6 +3,8 @@ import { ReactLenis } from 'lenis/react';
 import AppRoutes from './routes';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import Services from './components/home/Services';
+import WhyHireMe from './components/home/WhyHireMe';
 import CTA from './components/home/CTA';
 import ScrollToTop from './components/common/ScrollToTop';
 import RouteScrollToTop from './components/common/RouteScrollToTop';
@@ -25,6 +27,8 @@ function App() {
                 <main>
                     <AppRoutes />
                 </main>
+                <Services />
+                <WhyHireMe />
                 <CTA />
                 <Footer />
             </div>

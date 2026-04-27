@@ -8,10 +8,15 @@ const TechStrip = () => {
         { name: 'React', img: 'https://cdn.simpleicons.org/react/61DAFB', color: '#61DAFB' },
         { name: 'Vite', img: 'https://cdn.simpleicons.org/vite/646CFF', color: '#646CFF' },
         { name: 'Tailwind CSS', img: 'https://cdn.simpleicons.org/tailwindcss/06B6D4', color: '#06B6D4' },
+        { name: 'Bootstrap', img: 'https://cdn.simpleicons.org/bootstrap/7952B3', color: '#7952B3' },
         { name: 'Python', img: 'https://cdn.simpleicons.org/python/3776AB', color: '#3776AB' },
-        { name: 'Django', img: 'https://cdn.simpleicons.org/django/092E20', color: '#092E20' },
         { name: 'MySQL', img: 'https://cdn.simpleicons.org/mysql/4479A1', color: '#4479A1' },
         { name: 'Git', img: 'https://cdn.simpleicons.org/git/F05032', color: '#F05032' },
+        { name: 'GitHub', img: 'https://cdn.simpleicons.org/github/white', color: '#ffffff' },
+        { name: 'AWS', img: '/aws.svg', color: '#FF9900' },
+        { name: 'Docker', img: 'https://cdn.simpleicons.org/docker/2496ED', color: '#2496ED' },
+        { name: 'Postman', img: '/postman.svg', color: '#FF6C37' },
+        { name: 'API', img: '/openapi.svg', color: '#6BA539' },
     ];
 
     return (
@@ -20,16 +25,18 @@ const TechStrip = () => {
             <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            <div className="flex flex-col items-center mb-12">
-                <motion.span
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="px-5 py-2 rounded-full text-[10px] font-black tracking-[0.4em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-2 shadow-[0_0_15px_rgba(37,99,235,0.15)]"
-                >
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center gap-4 mb-12"
+            >
+                <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
                     Core Technologies
-                </motion.span>
-            </div>
+                </span>
+                <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+            </motion.div>
 
             <div className="relative flex overflow-hidden">
                 <motion.div

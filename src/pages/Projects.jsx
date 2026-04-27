@@ -35,14 +35,18 @@ const Projects = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-24 max-w-3xl mx-auto"
                 >
-                    <motion.span
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-8 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex items-center justify-center gap-4 mb-8"
                     >
-                        Solutions
-                    </motion.span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                            Solutions
+                        </span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                    </motion.div>
                     <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter">
                         My <span className="text-gradient-alt">Projects</span>
                     </h1>

@@ -25,9 +25,18 @@ const CurrentlyLearning = () => {
                     </div>
                     
                     <div>
-                        <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-4 inline-block">
-                            Growth & Learning
-                        </span>
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center gap-4 mb-4"
+                        >
+                            <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-brand-500/50" />
+                            <span className="text-[10px] font-black tracking-[0.3em] uppercase text-brand-400 whitespace-nowrap">
+                                Growth & Learning
+                            </span>
+                            <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-brand-500/50" />
+                        </motion.div>
                         <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
                             Currently <span className="text-gradient-alt">Learning</span>
                         </h3>

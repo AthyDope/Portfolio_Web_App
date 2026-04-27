@@ -27,15 +27,19 @@ const TechStack = () => {
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 blur-[120px] rounded-full pointer-events-none" />
 
             <Container className="relative z-10">
-                <div className="mb-12 sm:mb-20">
-                    <motion.span
+                <div className="flex flex-col items-center text-center mb-12 sm:mb-20">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                        className="flex items-center justify-center gap-4 mb-8"
                     >
-                        Engineering
-                    </motion.span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                            Engineering
+                        </span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                    </motion.div>
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter">
                         Technical <span className="text-gradient-alt">Stack</span>
                     </h2>

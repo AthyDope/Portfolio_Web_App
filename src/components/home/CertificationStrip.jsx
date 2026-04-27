@@ -19,16 +19,18 @@ const CertificationStrip = () => {
             </div>
 
             <Container className="relative z-10">
-                <div className="flex flex-col items-center mb-12">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="px-4 py-1 rounded-full text-[9px] font-black tracking-[0.4em] uppercase bg-white/5 text-slate-500 border border-white/10 mb-2"
-                    >
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex items-center justify-center gap-4 mb-10"
+                >
+                    <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                    <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
                         Highlights
-                    </motion.span>
-                </div>
+                    </span>
+                    <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                </motion.div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {items.map((item, idx) => (

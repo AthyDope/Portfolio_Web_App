@@ -87,13 +87,16 @@ const Skills = () => {
                     >
                         {/* Premium Badge */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/20 mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(37,99,235,0.15)]"
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center justify-center gap-4 mb-8"
                         >
-                            <Zap size={14} className="text-brand-400" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-400">Expertise</span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                Expertise
+                            </span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
                         </motion.div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.1]">

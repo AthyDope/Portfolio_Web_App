@@ -17,10 +17,19 @@ const ToolsWorkflows = () => {
     return (
         <section className="py-24 relative z-10 bg-[#020617]">
             <Container>
-                <div className="text-center mb-16">
-                    <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4 inline-block">
-                        Workspace
-                    </span>
+                <div className="flex flex-col items-center text-center mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="flex items-center justify-center gap-4 mb-4"
+                    >
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                            Workspace
+                        </span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                    </motion.div>
                     <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter">
                         Tools & <span className="text-gradient-alt">Workflows</span>
                     </h2>

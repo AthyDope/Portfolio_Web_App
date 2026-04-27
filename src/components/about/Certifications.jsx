@@ -62,19 +62,23 @@ const Certifications = () => {
 
             <Container className="relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
-                    <div className="max-w-3xl">
-                        <motion.span
+                    <div className="w-full flex flex-col items-center text-center">
+                        <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                            className="flex items-center justify-center gap-4 mb-8"
                         >
-                            Credentials
-                        </motion.span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                Credentials
+                            </span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                        </motion.div>
                         <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-none">
                             Professional <span className="text-gradient-alt">Certifications</span>
                         </h2>
-                        <p className="text-slate-400 text-base sm:text-xl font-medium opacity-80 leading-relaxed">
+                        <p className="text-slate-400 text-base sm:text-xl font-medium opacity-80 leading-relaxed max-w-3xl">
                             Continuous learning is a part of my journey. Here are some of the certifications I've earned to validate my technical expertise.
                         </p>
                     </div>

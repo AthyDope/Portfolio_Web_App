@@ -16,26 +16,29 @@ const Languages = () => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-600/5 blur-[120px] rounded-full pointer-events-none" />
 
             <Container className="relative z-10">
-                <div className="flex flex-col lg:flex-row gap-20 items-center">
-                    <div className="lg:w-1/2">
-                        <motion.span
+                <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center text-center mb-16">
+                        <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                            className="flex items-center justify-center gap-4 mb-8"
                         >
-                            Communication
-                        </motion.span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                Communication
+                            </span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                        </motion.div>
                         <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-none">
-                            Fluent in <br />
-                            <span className="text-gradient-alt">Languages</span>
+                            Fluent in <span className="text-gradient-alt">Languages</span>
                         </h2>
-                        <p className="text-slate-400 text-base sm:text-xl font-medium opacity-80 leading-relaxed max-w-xl">
+                        <p className="text-slate-400 text-base sm:text-xl font-medium opacity-80 leading-relaxed max-w-3xl">
                             Effective communication is the foundation of successful collaboration. I am proficient in multiple languages, allowing me to work seamlessly in diverse global environments.
                         </p>
                     </div>
 
-                    <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                         {languages.map((lang, idx) => (
                             <motion.div
                                 key={idx}

@@ -30,15 +30,19 @@ const Education = () => {
             <div className="absolute top-1/2 -left-20 w-[400px] h-[400px] bg-brand-600/5 blur-[100px] rounded-full pointer-events-none" />
 
             <Container className="relative z-10">
-                <div className="mb-20">
-                    <motion.span
+                <div className="flex flex-col items-center text-center mb-20">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-6 inline-block shadow-[0_0_20px_rgba(99,102,241,0.1)]"
+                        className="flex items-center justify-center gap-4 mb-8"
                     >
-                        Academic Journey
-                    </motion.span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                        <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                            Academic Journey
+                        </span>
+                        <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                    </motion.div>
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white tracking-tighter">
                         My <span className="text-gradient-alt">Education</span>
                     </h2>

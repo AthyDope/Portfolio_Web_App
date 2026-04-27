@@ -30,14 +30,17 @@ const AboutIntro = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <motion.span
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-8 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]"
+                            className="flex items-center gap-4 mb-8"
                         >
-                            About Me
-                        </motion.span>
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                About Me
+                            </span>
+                            <div className="h-[1px] w-20 bg-gradient-to-r from-brand-500/50 to-transparent" />
+                        </motion.div>
                         
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black text-white mb-8 sm:mb-10 tracking-tighter leading-none">
                             I Create <span className="text-gradient-alt">Impactful</span> <br /> 

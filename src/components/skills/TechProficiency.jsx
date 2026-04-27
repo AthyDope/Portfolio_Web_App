@@ -34,9 +34,17 @@ const TechProficiency = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-6 inline-block shadow-[0_0_20px_rgba(37,99,235,0.1)]">
-                            Core Competencies
-                        </span>
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center gap-4 mb-6"
+                        >
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                Core Competencies
+                            </span>
+                            <div className="h-[1px] w-20 bg-gradient-to-r from-brand-500/50 to-transparent" />
+                        </motion.div>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tighter mb-6">
                             Technology <span className="text-gradient-alt">Proficiency</span>
                         </h2>

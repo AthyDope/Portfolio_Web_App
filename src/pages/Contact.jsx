@@ -166,27 +166,31 @@ const Contact = () => {
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
                         className="text-center mb-20 max-w-3xl mx-auto"
                     >
-                        <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.2 }} whileHover={{ scale: 1.05, y: -2 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:bg-brand-500/20 transition-all duration-300"
-                            >
-                                <Mail size={14} className="text-brand-400" />
-                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-400">Inquiries</span>
-                            </motion.div>
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.3 }} whileHover={{ scale: 1.05, y: -2 }}
-                                className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:bg-emerald-500/20 transition-all duration-300"
-                            >
-                                <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                                </span>
-                                <span className="text-xs font-bold text-emerald-400 lg:text-sm">Available for Opportunities</span>
-                            </motion.div>
-                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="flex items-center justify-center gap-4 mb-8"
+                        >
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-r from-transparent to-brand-500/50" />
+                            <span className="text-[10px] sm:text-xs font-bold tracking-[0.3em] uppercase text-brand-400">
+                                Inquiries
+                            </span>
+                            <div className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-brand-500/50" />
+                        </motion.div>
+                        
+                        {/* Availability Status */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md mb-8"
+                        >
+                            <span className="relative flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            </span>
+                            <span className="text-xs font-bold text-emerald-400">Available for Opportunities</span>
+                        </motion.div>
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[1.1]">
                             Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-500 to-indigo-500">Connect</span>
                         </h1>
@@ -352,7 +356,18 @@ const Contact = () => {
                         viewport={{ once: true }} className="max-w-4xl mx-auto"
                     >
                         <div className="text-center mb-10">
-                            <span className="px-4 py-1.5 rounded-full text-[10px] font-black tracking-[0.3em] uppercase bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4 inline-block">Process</span>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="flex items-center justify-center gap-4 mb-4"
+                            >
+                                <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-brand-500/50" />
+                                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-brand-400">
+                                    Process
+                                </span>
+                                <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-brand-500/50" />
+                            </motion.div>
                             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter">What Happens <span className="text-gradient-alt">Next?</span></h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
